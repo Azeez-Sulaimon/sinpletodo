@@ -44,7 +44,7 @@ class App extends Component {
   // our first get method that uses our backend api to
   // fetch data from our data base
   getDataFromDb = () => {
-    fetch('https://dandeebackend.herokuapp.com/api/getData')
+    fetch('http://localhost:3001/api/getData')
       .then((data) => data.json())
       .then((res) => this.setState({ data: res.data }));
   };
@@ -58,7 +58,7 @@ class App extends Component {
       ++idToBeAdded;
     }
 
-    axios.post('https://dandeebackend.herokuapp.com/api/putData', {
+    axios.post('http://localhost:3001/api/putData', {
       id: idToBeAdded,
       message: message,
     });
@@ -75,7 +75,7 @@ class App extends Component {
       }
     });
 
-    axios.delete('https://dandeebackend.herokuapp.com/api/deleteData', {
+    axios.delete('http://localhost:3001/api/deleteData', {
       data: {
         id: objIdToDelete,
       },
@@ -93,7 +93,7 @@ class App extends Component {
       }
     });
 
-    axios.post('https://dandeebackend.herokuapp.com/api/updateData', {
+    axios.post('http://localhost:3001/api/updateData', {
       id: objIdToUpdate,
       update: { message: updateToApply },
     });
